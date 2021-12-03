@@ -1,8 +1,11 @@
 package com.github.SMKozh.jrtb.command;
 
+import org.junit.jupiter.api.DisplayName;
+
 import static com.github.SMKozh.jrtb.command.CommandName.STAT;
 import static com.github.SMKozh.jrtb.command.StatCommand.STAT_MESSAGE;
 
+@DisplayName("Unit-level testing for StatCommand")
 public class StatCommandTest extends AbstractCommandTest {
 
     @Override
@@ -17,6 +20,6 @@ public class StatCommandTest extends AbstractCommandTest {
 
     @Override
     Command getCommand() {
-        return new StartCommand(sendBotMessageService,telegramUserService);
+        return new StatCommand(sendBotMessageService,telegramUserService);
     }
 }

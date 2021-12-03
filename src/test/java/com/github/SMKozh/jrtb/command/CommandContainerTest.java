@@ -15,14 +15,14 @@ import java.util.Arrays;
 public class CommandContainerTest {
     private CommandContainer commandContainer;
 
-//    @BeforeEach
+    @BeforeEach
     public void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
         commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
     }
 
-//    @Test
+    @Test
     public void shouldGetAllTheExistingCommands() {
         //when-then
         Arrays.stream(CommandName.values()).forEach(commandName -> {Command command = commandContainer.retrieveCommand(commandName.getCommandName());
