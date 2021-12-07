@@ -48,10 +48,11 @@ public class ListGroupSubCommandTest {
         Mockito.when(message.getText()).thenReturn(LIST_GROUP_SUB.getCommandName());
         update.setMessage(message);
 
-        String collectedGroups = "Я нашел все подписки на группы: \n\n" +
-                telegramUser.getGroupSubs().stream()
+        String joinedGroups = telegramUser.getGroupSubs().stream()
                         .map(it -> "Группа: " + it.getTitle() + " , ID = " + it.getId() + " \n")
                         .collect(Collectors.joining());
+
+        String collectedGroups = String.format("Я нашел все подписки на группы: \n\n %s", joinedGroups);
 
         //when
         command.execute(update);
