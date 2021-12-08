@@ -7,6 +7,8 @@
 *   JRTB-9: added ability to set active user and/or start using it.
 
 ## 0.6.0-SNAPSHOT
+
+
 *   JRTB-7: added the ability to delete group subscription.
 
 ## 0.5.0-SNAPSHOT
