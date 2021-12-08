@@ -23,6 +23,8 @@ public class GroupSubServiceTest {
     private TelegramUser newUser;
 
     private static final String CHAT_ID = "1";
+    private final static Integer GROUP_ID = 1123;
+    private final static Integer LAST_ARTICLE_ID = 310;
 
     @BeforeEach
     public void init() {
@@ -36,18 +38,21 @@ public class GroupSubServiceTest {
         newUser.setChatId(CHAT_ID);
 
         Mockito.when(telegramUserService.findByChatId(CHAT_ID)).thenReturn(Optional.of(newUser));
+
+        Mockito.when(javaRushGroupClient.findLastPostId(GROUP_ID)).thenReturn(LAST_ARTICLE_ID);
     }
 
     @Test
     public void shouldProperlySaveGroup() {
         //given
         GroupDiscussionInfo groupDiscussionInfo = new GroupDiscussionInfo();
-        groupDiscussionInfo.setId(1);
+        groupDiscussionInfo.setId(GROUP_ID);
         groupDiscussionInfo.setTitle("g1");
 
         GroupSub expectedGroupSub = new GroupSub();
         expectedGroupSub.setId(groupDiscussionInfo.getId());
         expectedGroupSub.setTitle(groupDiscussionInfo.getTitle());
+        expectedGroupSub.setLastArticleId(LAST_ARTICLE_ID);
         expectedGroupSub.addUser(newUser);
 
         //when
