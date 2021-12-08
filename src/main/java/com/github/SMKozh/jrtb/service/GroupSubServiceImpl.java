@@ -65,4 +65,5 @@ public class GroupSubServiceImpl implements GroupSubService {
     public List<GroupSub> findAll() {
         return groupSubRepository.findAll();
     }
+
 }
